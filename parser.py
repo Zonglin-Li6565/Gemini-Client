@@ -3,9 +3,14 @@ import numpy as np
 from display import TUI
 from book import Book
 
-ui = TUI(20)
-#ui = None
-book = Book(ui)
+ui = None
+book = None
+
+def init(levels=20):
+    global ui
+    global book
+    ui = TUI(levels)
+    book = Book(ui)
 
 def parse(ws, message):
     global ui
