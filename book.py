@@ -26,7 +26,7 @@ class Book(object):
         """
         if not self.lock.locked():
             self.lock.acquire()
-        price = decimal.Decimal(price)
+        price = -decimal.Decimal(price)
         remaining = decimal.Decimal(remaining)
         #self.ui.set_status("Processing " + str(price) + " " + str(remaining) + " " + str(side))
         if remaining > 0:
@@ -38,7 +38,7 @@ class Book(object):
                 self.price = np.insert(self.price, idx, price)
                 self.price_dict[price] = idx
                 self.reindex = True
-                if side == 0:
+                if side == 1:
                     self.sep_idx += 1
         elif price in self.price_dict:
             idx = self.price_dict[price]
@@ -46,7 +46,7 @@ class Book(object):
             self.price = np.delete(self.price, idx)
             self.price_dict.pop(price, None)
             self.reindex = True
-            if side == 0:
+            if side == 1:
                 self.sep_idx -= 1
 
 
@@ -57,6 +57,6 @@ class Book(object):
         if self.reindex:
             for i in range(self.price.shape[0]):
                 self.price_dict[self.price[i]] = i
-        self.ui.update(self.amount, self.price, self.sep_idx)
+        self.ui.update(self.amount, -self.price, self.sep_idx)
         self.lock.release()
 

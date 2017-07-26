@@ -1,8 +1,11 @@
 import websocket
-from parser import parse
+from parser import parse, terminate
 
-def p(ws, msg):
-    print(msg)
+try:
 
-ws = websocket.WebSocketApp("wss://api.gemini.com/v1/marketdata/BTCUSD", on_message=parse)
-ws.run_forever(ping_interval=5)
+    ws = websocket.WebSocketApp("wss://api.gemini.com/v1/marketdata/BTCUSD", on_message=parse)
+    ws.run_forever(ping_interval=5)
+
+finally:
+
+    terminate()

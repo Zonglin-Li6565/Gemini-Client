@@ -20,6 +20,7 @@ class TUI(UI):
         self.n_levels = n_levels
 
     def close(self):
+        self.scr.erase()
         curses.endwin()
 
     def set_status(self, string):
