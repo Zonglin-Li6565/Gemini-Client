@@ -11,6 +11,7 @@ def init(levels=20):
     global book
     ui = TUI(levels)
     book = Book(ui)
+    return ui, book
 
 def parse(ws, message):
     global ui
@@ -24,4 +25,5 @@ def parse(ws, message):
         book.finish_update()
 
 def terminate():
-    ui.close()
+    if ui != None:
+        ui.close()
