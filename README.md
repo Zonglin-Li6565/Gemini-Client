@@ -2,6 +2,8 @@
 
 So far only has support for market data, and interface is TUI
 
+[Exchange API](https://docs.gemini.com/rest-api/#introduction)
+
 ## Run
 
 ```bash
