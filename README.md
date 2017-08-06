@@ -9,7 +9,7 @@ python run.py
 ```
 ## Project Goals:
 
-General goal: build up an automatic trading system of crypto curencies.
+General goal: build up an automatic trading system of crypto currencies.
 
 Components:
 
