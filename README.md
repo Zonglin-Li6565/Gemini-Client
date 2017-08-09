@@ -24,3 +24,8 @@ Components:
   - ML models:
 
     - Uses platform API
+  
+## Diagram:
+
+![Architecture](architecture.png)
+
