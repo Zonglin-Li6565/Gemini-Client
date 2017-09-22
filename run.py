@@ -30,7 +30,7 @@ if __name__ == '__main__':
         print("Market Data: %s" % (url + "/marketdata/" + args.sym))
         print("Good? [Y/n]")
         line = sys.stdin.readline().strip()
-        if not (line.lower() == "y" or line.lower() == "yes"):
+        if not (line.lower() == "" or line.lower() == "y" or line.lower() == "yes"):
             sys.exit(0)
 
         ui, book = init(args.levels)
